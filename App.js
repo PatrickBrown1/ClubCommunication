@@ -1,31 +1,39 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  _handlePress() {
+class HomeScreen extends React.Component {
+  /*_handlePress() {
     console.log('Pressed!');
     alert("Hello!");
-  }
+  }*/
   render() {
     return (
       <View style={[styles.container]}>
-        <Text style={styles.background}>Open up App.js to start working on your app!</Text>
+        <Text style={styles.background}>Home Screen</Text>  
         <Button
-          onPress={() => this._handlePress()}
-          title="Alert Me"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
+          title="Go to About Page"
+          onPress={() => this.props.navigation.navigate('About')}
         />
       </View>
     );
   }
 }
 
+class AboutScreen extends React.Component {
+  render(){
+    return(
+      <View style={[styles.container]}>
+        <Text style={styles.background}>About Screen</Text>  
+      </View>
+    )
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -33,3 +41,20 @@ const styles = StyleSheet.create({
     backgroundColor: '#1F1'
   },
 });
+
+
+
+const RootStack = createStackNavigator({
+    Home: HomeScreen,
+    About: AboutScreen,
+  },
+  {
+    initialRoutName: 'Home',
+  }
+);
+
+export default class App extends React.Component{
+  render() {
+    return <RootStack />;
+  }
+}
