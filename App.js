@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import Header from './components/Header.js';
 
 class HomeScreen extends React.Component {
   /*_handlePress() {
@@ -10,12 +11,18 @@ class HomeScreen extends React.Component {
   }*/
   render() {
     return (
+      
       <View style={[styles.container]}>
-        <Text style={styles.background}>Home Screen</Text>  
-        <Button
-          title="Go to About Page"
-          onPress={() => this.props.navigation.navigate('About')}
-        />
+        <View flex hleft mdpr style={{ backgroundColor: '#3F3C4C', alignSelf: 'flex-start', zIndex: 1}}>
+          <Header />
+        </View>
+        <View style={{flex: 1,}}>
+          <Text style={styles.background}>Home Screen</Text>  
+          <Button
+            title="Go to About Page"
+            onPress={() => this.props.navigation.navigate('About')}
+          />
+        </View>
       </View>
     );
   }
