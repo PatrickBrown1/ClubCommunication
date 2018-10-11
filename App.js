@@ -14,14 +14,11 @@ class HomeScreen extends React.Component {
       
       <View style={[styles.container]}>
         <View flex hleft mdpr style={{ backgroundColor: '#3F3C4C', alignSelf: 'flex-start', zIndex: 1}}>
-          <Header />
+          <Header navigation={this.props.navigation}/>
         </View>
         <View style={{flex: 1,}}>
           <Text style={styles.background}>Home Screen</Text>  
-          <Button
-            title="Go to About Page"
-            onPress={() => this.props.navigation.navigate('About')}
-          />
+          
         </View>
       </View>
     );
@@ -45,7 +42,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   background: {
-    backgroundColor: '#1F1'
+    backgroundColor: '#FFFFFF'
   },
 });
 
@@ -59,6 +56,8 @@ const RootStack = createStackNavigator({
     initialRoutName: 'Home',
   }
 );
+
+
 
 export default class App extends React.Component{
   render() {

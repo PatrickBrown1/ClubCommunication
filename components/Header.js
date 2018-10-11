@@ -1,24 +1,35 @@
 import React from 'react';
 import BouncyDrawer from 'react-native-bouncy-drawer'
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import MAIcon from 'react-native-vector-icons/MaterialIcons'
+import { createStackNavigator } from 'react-navigation';
 
 export default class Header extends React.Component{
-
-    renderItem = (text, color) => (
+    constructor(props){
+        super(props);
+        
+    }
+    handlePress = (routeLocation) => {
+        this.props.navigation.navigate(routeLocation);
+        console.log("route to" + {routeLocation});
+    }
+    
+    renderButton = (name, routeLocation) => (
         <View smp row vcenter>
-            <Text style={{ fontSize: 16, color, fontWeight: '600' }}>{text}</Text>
+            <Button onPress={() => {this.props.navigation.navigate(routeLocation);}} title={name}>
+                {name}
+            </Button>
         </View>
     )
+
     renderContent = () => (
         <View flex hcenter mdpr style={{ backgroundColor: '#3F3C4C', alignItems: 'center', zIndex: 1}}>
             <View flex>
                 <View style={{ flex: 1 }} />
-                {this.renderItem("PROFILE ", "#fff")}
-                {this.renderItem("FRIENDS ", "#fff")}
-                {this.renderItem("ACTIVITY", "#2FCACE")}
+                {this.renderButton("HOME", 'Home')}
+                {this.renderButton("ABOUT", 'About')}
+                {this.renderButton("ACTIVITY", 'Activity')}
                 <View mdp/>
-                {this.renderItem("SETTINGS", "#fff")}
                 <View style={{ flex: 3 }} />
             </View>
         </View>
