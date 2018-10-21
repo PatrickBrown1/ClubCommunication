@@ -4,9 +4,8 @@ import { createBottomTabNavigator, createDrawerNavigator } from "react-navigatio
 import DrawerContent from "../views/Sidebar"
 
 import First from '../views/First';
-
 import Home from '../views/Home';
-
+import Club from '../views/Club'
 
 export const Drawer = createDrawerNavigator({
   Home: {
@@ -14,6 +13,9 @@ export const Drawer = createDrawerNavigator({
   },
   First: {
     screen: First,
+  },
+  Club: {
+    screen: Club,
   },
 }, {
   contentComponent: DrawerContent,
@@ -25,8 +27,6 @@ export const Drawer = createDrawerNavigator({
 });
 
 
-
-
 export const Tab = createBottomTabNavigator({
   Home: {
     screen: Drawer,
@@ -34,7 +34,6 @@ export const Tab = createBottomTabNavigator({
   First: {
     screen: First,
   },
-  
 }, {
   tabBarPosition: 'bottom',
   swipeEnabled: true,

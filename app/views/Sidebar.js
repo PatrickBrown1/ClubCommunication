@@ -43,6 +43,16 @@ class DrawerContent extends Component {
             <Text style={styles.sectionHeadingStyle}>
            </Text>
 
+          <Button
+            raised
+            icon={{name: 'map', type: 'font-awesome', size: 20}}
+            title='Clubs'
+            buttonStyle={styles.button}
+            onPress={this.navigateToScreen('Club')}/>
+          
+            <Text style={styles.sectionHeadingStyle}>
+           </Text>
+
 
         </ScrollView>
       </View>
