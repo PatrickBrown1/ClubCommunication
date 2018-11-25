@@ -6,6 +6,7 @@ import DrawerContent from "../views/Sidebar"
 import First from '../views/First';
 import Home from '../views/Home';
 import Club from '../views/Club'
+import JoinClub from '../views/JoinClub'
 
 export const Drawer = createDrawerNavigator({
   Home: {
@@ -16,6 +17,9 @@ export const Drawer = createDrawerNavigator({
   },
   Club: {
     screen: Club,
+  },
+  JoinClub: {
+    screen: JoinClub,
   },
 }, {
   contentComponent: DrawerContent,
