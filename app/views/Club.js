@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, Text, StyleSheet } from 'react-native';
-import { Icon } from 'react-native-elements';
+import { Icon, Button } from 'react-native-elements';
 import ClubList from './ClubList.js';
 
 class Club extends Component {
