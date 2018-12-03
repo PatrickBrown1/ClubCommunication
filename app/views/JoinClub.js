@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, Text, StyleSheet, TextInput, AsyncStorage } from 'react-native';
-import { Icon, Button } from 'react-native-elements';;
+import { Icon, Button } from 'react-native-elements';
 import firebase from '../../firebase/database.js';
 class JoinClub extends Component {
   constructor(props) {
