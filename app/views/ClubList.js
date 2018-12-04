@@ -36,9 +36,11 @@ class ClubList extends Component {
     const ClubRef = firebase.database().ref("ClubList/");
     console.log("Attempting to Read Database...");
 
-    const tempClubList = [];
     
     ClubRef.on('value', snapshot => {
+      let tempClubList = null;
+      tempClubList = [];
+      console.log(tempClubList.length);
         snapshot.forEach(childSnapShot => {
           //console.log( childSnapShot.key + " : "  + childSnapShot.val());
           const item = {
@@ -49,17 +51,11 @@ class ClubList extends Component {
           //Add an item object to the tempClubList Array
           tempClubList.push(item);
         });
-
+        console.log(tempClubList.length);
         //set the tempClubList Array to the state clubList
       this.setState({ ClubList: tempClubList });    
     });
   console.log('Database Read\n')
-  }
-  onValueChange(key, value){
-    //Why doesn't this work
-    console.log("selected " + key + " " + value);
-    let temp = this.state.ClubList[key]
-    this.setState({ selectedData: option.value})
   }
   render () {
     return (  
