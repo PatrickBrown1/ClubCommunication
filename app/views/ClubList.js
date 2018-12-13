@@ -16,7 +16,7 @@ class ClubList extends Component {
   navigateToScreen = (route) => () => {
     const navigate = NavigationActions.navigate({
       routeName: route
-    });
+    }); 
     this.props.navigation.dispatch(navigate);
   }
   componentWillMount() {  
